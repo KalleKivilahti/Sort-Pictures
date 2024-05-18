@@ -14,9 +14,9 @@ def sort(source_folder, destination_folder):
     for filename in os.listdir(source_folder):
         if filename.lower().endswith(('jpg', 'jpeg', 'png', 'bmp', 'tiff')):
             image_path = os.path.join(source_folder, filename)
-            if sharp(image_path):
+            if not sharp(image_path):
                 os.rename(image_path, os.path.join(destination_folder, filename))
 
 source_folder = 'Images'
-destination_folder = 'Unsharpened'
+destination_folder = 'Unsharpened Images'
 sort(source_folder, destination_folder)
